@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8562678085274189"
+          crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1><a href="/">My Markdown Blog</a></h1>
+  </header>
+
+  <main class="post">
+    <h2>{{title}}</h2>
+    <p class="date">{{date}}</p>
+
+    <!-- Rendered Markdown content -->
+    <div class="content">
+      {{content}}
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 My Markdown Blog</p>
+  </footer>
+
+  <script>
+    // Automatically inject AdSense after the 1st paragraph
+    window.addEventListener("DOMContentLoaded", () => {
+      const content = document.querySelector(".content");
+      const firstP = content.querySelector("p");
+      if (firstP) {
+        const ad = document.createElement("div");
+        ad.innerHTML = `
+          <ins class="adsbygoogle"
+               style="display:block; margin:20px 0;"
+               data-ad-client="ca-pub-8562678085274189"
+               data-ad-slot="7788393359"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+        `;
+        firstP.insertAdjacentElement("afterend", ad);
+      }
+    });
+  </script>
+</body>
+</html>
